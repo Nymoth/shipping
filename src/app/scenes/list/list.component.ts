@@ -43,10 +43,8 @@ export class ListComponent implements OnInit {
     if (this.mode === 'new') {
       // new address
       this.addressService.create(address).subscribe(
-        // This service should return the inserted object id, so I could just push it to the addresses array.
-        // Instead, I have to call the list service to refresh it...
         res => {
-          this._refreshAddresses();
+          this.addresses.push(res);
           this.newAddress();
         },
         err => this.addressesErrors = err);
@@ -56,7 +54,7 @@ export class ListComponent implements OnInit {
         res => {
           this.addresses = this.addresses.map((item: Address) => {
             if (item.id === this.selectedAddress.id) {
-              return this.selectedAddress;
+              return res;
             }
             return item;
           });
