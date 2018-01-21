@@ -1,0 +1,19 @@
+<div class="address-card">
+  <div class="address-card__info">
+    <div>{{ address?.title }} {{ address?.name }}</div>
+    <div>{{ address?.line1 }}</div>
+    <div *ngIf="address?.line2">{{ address.line2 }}</div>
+    <div>{{ address?.town }}, {{ address?.postcode }}</div>
+  </div>
+  <div class="address-card__action-separator"></div>
+  <div class="address-card__actions">
+    <div class="address-card__action-links-wrapper">
+      <div class="address-card__action-link" (click)="editAddress()">edit</div>
+      <div class="address-card__action-link" (click)="removeAddress()">remove</div>
+    </div>
+    <div class="address-card__action-separator"></div>
+    <div class="address-card__action-buttons-wrapper">
+      <button class="btn btn-primary address-card__action-button">Deliver here</button>
+    </div>
+  </div>
+</div>

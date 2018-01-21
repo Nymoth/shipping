@@ -1,0 +1,26 @@
+@import '../../styles/cards.scss';
+
+.address-card {
+  @include card;
+
+  &_actions {
+    display: flex;
+    margin-top: 10px;
+  }
+
+  &__action-buttons-wrapper {
+    align-self: flex-end;
+  }
+
+  &__action-link {
+    cursor: pointer;
+    color: var(--blue);
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__action-separator {
+    flex: 1 1 auto;
+  }
+}

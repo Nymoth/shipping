@@ -1,0 +1,7 @@
+<div class="form-group">
+  <label class="form-control-wrapper">
+    <ng-container *ngIf="label">{{ label }}</ng-container>
+    <ng-content></ng-content>
+  </label>
+  <ngb-alert *ngIf="error" type="danger" [dismissible]="false">{{ error }}</ngb-alert>
+</div>

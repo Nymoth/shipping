@@ -1,0 +1,33 @@
+<div class="list">
+  <div class="list__cards-wrapper">
+    <app-address-card
+      *ngFor="let address of addresses"
+      [address]="address"
+      (addressEdit)="editAddress(address)"
+      (addressRemove)="deleteAddress(address.id, removeConfirm)">
+    </app-address-card>
+    <div class="new-address-card">
+      <span class="new-address-card__title">New delivery address</span>
+      <button class="btn btn-primary new-address-card__action" (click)="newAddress()">Add new address</button>
+    </div>
+  </div>
+  <div class="list__form-wrapper">
+    <h4>{{ mode === 'edit' ? 'Edit address' : 'Add a new shipping address' }}</h4>
+    <app-address-form
+      [mode]="mode"
+      [address]="selectedAddress"
+      [addressValidation]="addressesErrors"
+      (addressChange)="submitAddress($event)">
+    </app-address-form>
+  </div>
+</div>
+
+<ng-template #removeConfirm let-c="close">
+  <div class="modal-body">
+    <p>Are you sure you want to remove this address?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c(false)">Cancel</button>
+    <button type="button" class="btn btn-outline-danger" (click)="c(true)">Remove</button>
+  </div>
+</ng-template>
