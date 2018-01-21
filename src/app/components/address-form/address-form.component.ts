@@ -13,7 +13,7 @@ export class ControlValidation {
   selector: 'app-address-form',
   templateUrl: './address-form.component.html',
   styleUrls: ['./address-form.component.scss'],
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AddressFormComponent implements OnChanges {
 

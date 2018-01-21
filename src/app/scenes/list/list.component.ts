@@ -54,7 +54,6 @@ export class ListComponent implements OnInit {
       // editing
       this.addressService.edit(this.selectedAddress.id, address).subscribe(
         res => {
-          console.log(this.addresses, this.selectedAddress);
           this.addresses = this.addresses.map((item: Address) => {
             if (item.id === this.selectedAddress.id) {
               return this.selectedAddress;
@@ -73,10 +72,9 @@ export class ListComponent implements OnInit {
         this.addressService.delete(addressId).subscribe(
           res => {
             if (this.selectedAddress && this.selectedAddress.id === addressId) {
-              this.selectedAddress = null;
+              this.newAddress();
             }
             this.addresses = this.addresses.filter(address => address.id !== addressId);
-            this.newAddress();
           });
       }
     });
